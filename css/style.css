@@ -1,0 +1,864 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a56db;
+  background-image: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
+  overflow: hidden;
+}
+
+header {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 180%;
+  color: white;
+}
+
+main {
+  display: none;
+  max-width: 800px;
+  height: 100%;
+  position: relative;
+  margin: auto;
+}
+
+main div {
+  box-sizing: border-box;
+}
+
+.game-container {
+  position: relative;
+  max-width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrap-box {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 125%;
+}
+
+.game-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.ludo-board {
+  display: inline-block;
+  width: 100%;
+  height: 80%;
+  background-color: #2563eb;
+  padding: 0.2%;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.row {
+  font-size: 0;
+}
+
+.row .col {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.row1,
+.row3 {
+  width: 100%;
+  height: 40%;
+}
+
+.row2 {
+  width: 100%;
+  height: 20%;
+}
+
+#wrap-in-area {
+  width: 40%;
+  height: 100%;
+  background-color: #2563eb;
+  padding: 0.2%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.in-area {
+  position: relative;
+  padding: 12%;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.in-area .badge-box {
+  position: absolute;
+  width: 76%;
+  height: 76%;
+  background-color: white;
+  top: 12%;
+  left: 12%;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.row1 .out-area,
+.row3 .out-area {
+  width: 20%;
+  height: 100%;
+  background-color: #2563eb;
+  padding: 0;
+}
+
+.row2 .out-area {
+  width: 40%;
+  height: 100%;
+  background-color: #2563eb;
+}
+
+.win-area {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.red-zone {
+  background-color: #ef4444;
+}
+
+.green-zone {
+  background-color: #10b981;
+}
+
+.blue-zone {
+  background-color: #3b82f6;
+}
+
+.yellow-zone {
+  background-color: #fbbf24;
+}
+
+.btw-g-r .row,
+.btw-b-y .row {
+  width: 100%;
+  height: calc(100% / 6);
+}
+
+.btw-g-r .row .col,
+.btw-b-y .row .col {
+  width: calc(100% / 3);
+  height: 100%;
+  padding: 1%;
+  background-color: #2563eb;
+  font-size: 0;
+}
+
+.btw-g-r .row .col div,
+.btw-b-y .row .col div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.btw-g-r .row .col div div,
+.btw-b-y .row .col div div {
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+}
+
+.btw-r-b .row,
+.btw-y-g .row {
+  width: 100%;
+  height: calc(100% / 3);
+}
+
+.btw-r-b .row .col,
+.btw-y-g .row .col {
+  width: calc(100% / 6);
+  height: 100%;
+  background-color: #2563eb;
+  padding: 0.5%;
+  font-size: 0;
+}
+
+.btw-r-b .row .col div,
+.btw-y-g .row .col div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.btw-r-b .row .col div div,
+.btw-y-g .row .col div div {
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+}
+
+.pawn-box div {
+  background-color: transparent;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+}
+
+.win-area .win-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-origin: bottom right;
+  padding: 0.5%;
+}
+
+.win-box .win-pawn-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.win-box .win-pawn-box div {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  background-color: transparent;
+}
+
+#win-box1 {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#g-win-pawn-box {
+  background-color: #10b981;
+}
+
+#win-box2 {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+#y-win-pawn-box {
+  background-color: #fbbf24;
+}
+
+#win-box3 {
+  transform: translate(-50%, -50%) rotate(225deg);
+}
+
+#b-win-pawn-box {
+  background-color: #3b82f6;
+}
+
+#win-box4 {
+  transform: translate(-50%, -50%) rotate(315deg);
+}
+
+#r-win-pawn-box {
+  background-color: #ef4444;
+}
+
+#out14,
+#g-out-1,
+#g-out-2,
+#g-out-3,
+#g-out-4,
+#g-out-5 {
+  background-color: #10b981;
+}
+
+#out1,
+#r-out-1,
+#r-out-2,
+#r-out-3,
+#r-out-4,
+#r-out-5 {
+  background-color: #ef4444;
+}
+
+#out40,
+#b-out-1,
+#b-out-2,
+#b-out-3,
+#b-out-4,
+#b-out-5 {
+  background-color: #3b82f6;
+}
+
+#out27,
+#y-out-1,
+#y-out-2,
+#y-out-3,
+#y-out-4,
+#y-out-5 {
+  background-color: #fbbf24;
+}
+
+.in-area .row {
+  width: 100%;
+  height: 50%;
+  background-color: white;
+}
+
+.in-area .row .col {
+  width: 50%;
+  height: 100%;
+  padding: 10%;
+  background-color: white;
+}
+
+/* Red Section */
+.r-circle {
+  background: #ef4444;
+  border-radius: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.r-pawn1,
+.r-pawn2,
+.r-pawn3,
+.r-pawn4 {
+  background-image: url("../images/redpawns.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position-x: 120%;
+  background-position-y: 50%;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+
+}
+
+/* Green Section */
+.g-circle {
+  background: #10b981;
+  border-radius: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.g-pawn1,
+.g-pawn2,
+.g-pawn3,
+.g-pawn4 {
+  background-image: url("../images/greenpawns.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position-x: 110%;
+  background-position-y: 52%;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+
+}
+
+/* Yellow Section */
+.y-circle {
+  background: #fbbf24;
+  border-radius: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.y-pawn1,
+.y-pawn2,
+.y-pawn3,
+.y-pawn4 {
+  background-image: url("../images/yellowpawns.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position-x: 120%;
+  background-position-y: 50%;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+
+}
+
+/* Blue Section */
+.b-circle {
+  background: #3b82f6;
+  border-radius: 100%;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.b-pawn1,
+.b-pawn2,
+.b-pawn3,
+.b-pawn4 {
+  background-image: url("../images/bluepawns.png");
+  background-repeat: no-repeat;
+  background-size: 110%;
+  background-position-x: 120%;
+  background-position-y: 50%;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+
+/* Star */
+#out1,
+#out48,
+#out9,
+#out22,
+#out35,
+#out14,
+#out27,
+#out40 {
+  background-image: url("../images/star2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+}
+
+.dice-container {
+  display: inline-block;
+  width: 100%;
+  height: 10%;
+  background: transparent;
+}
+
+.dice-container-top {
+  transform: translateY(-10px);
+}
+
+.dice-container-bottom {
+  transform: translateY(10px);
+}
+
+.dice-container .col1,
+.dice-container .col3 {
+  width: 12.5%;
+  height: 100%;
+}
+
+.dice-container .col2 {
+  width: 75%;
+  height: 100%;
+}
+
+.diceBox {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.greenDiceBox {
+  background: #10b981;
+}
+
+.redDiceBox {
+  background: #ef4444;
+}
+
+.blueDiceBox {
+  background: #3b82f6;
+}
+
+.yellowDiceBox {
+  background: #fbbf24;
+}
+
+.startDiceRoll {
+  background-image: url(../images/start_dice_roll2.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.startDiceRoll:hover {
+  transform: scale(1.05);
+}
+
+.rollDice {
+  background-image: url(../images/dice_roll.png);
+  background-repeat: no-repeat;
+  background-size: 600%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+}
+
+.showDice {
+  background-image: url(../images/dice.png);
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+}
+
+/* Animation Section */
+.glow {
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  cursor: pointer;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes example {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+div#preload {
+  display: none;
+}
+
+/* Home box css */
+#home-container {
+  display: block;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
+  z-index: 1;
+}
+
+#home {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#game-logo {
+  margin: 30px auto;
+  color: white;
+  font-family: "Fredoka One", cursive;
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#game-logo img {
+  width: 60px;
+  height: 60px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+#noOfplayerBox {
+  margin: 40px auto;
+}
+.player-card {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  display: none;
+}
+
+.player-card-content {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/player-avatar.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+
+.player-card-red {
+  background-color: #ef4444;
+  top: 20px;
+  right: 20px;
+}
+
+.player-card-green {
+  background-color: #10b981;
+  top: 20px;
+  left: 20px;
+}
+
+.player-card-blue {
+  background-color: #3b82f6;
+  bottom: 20px;
+  left: 20px;
+}
+
+.player-card-yellow {
+  background-color: #fbbf24;
+  bottom: 20px;
+  right: 20px;
+}
+
+.player-card-active {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.noOfPlayer,
+.alertBtn {
+  display: inline-block;
+  text-align: center;
+  font-family: "Fredoka One", cursive;
+  font-weight: bold;
+  font-size: 30px;
+  color: #1a56db;
+  background-color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.noOfPlayer:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.selected {
+  transform: scale(1.1);
+  background-color: #10b981;
+  color: white;
+  cursor: default;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+#startGame {
+  font-family: "Fredoka One", cursive;
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 28px;
+  background-color: #fbbf24;
+  color: #1a56db;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+#startGame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.settingsContiner {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  text-align: center;
+}
+
+.setting {
+  width: 12.335%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  border: none;
+  margin: 0 10%;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.setting:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+#sound {
+  background-image: url(../images/sound-on.svg);
+}
+
+#restart {
+  background-image: url(../images/restart.svg);
+}
+
+#fullscreen {
+  background-image: url(../images/fullscreen.svg);
+  margin: 3% 10% 0%;
+}
+
+#exitfullscreen {
+  background-image: url(../images/exit-fullscreen.svg);
+  margin: 3% 10% 0%;
+  display: none;
+}
+
+.setting:focus {
+  outline: none;
+  border: none;
+}
+
+#owner {
+  position: fixed;
+  bottom: 2%;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+}
+
+#owner a {
+  color: #fbbf24;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#owner a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+#alertBox {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  padding: 30px 40px;
+  background-color: white;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+#alertHeading {
+  font-size: 28px;
+  font-family: "Fredoka One", cursive;
+  color: #1a56db;
+  margin-bottom: 20px;
+}
+
+.alertBtn {
+  font-size: 20px;
+  background-color: #fbbf24;
+  color: #1a56db;
+  margin: 10px;
+  transition: all 0.2s ease;
+}
+
+.alertBtn:hover {
+  background-color: #10b981;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.alertBtn:focus {
+  outline: none;
+}
+
+@media all and (display-mode: fullscreen) {
+  #fullscreen {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+  main {
+    max-width: 1000px;
+  }
+  .game-container {
+    max-width: 700px;
+  }
+  #game-logo {
+    font-size: 60px;
+  }
+  #game-logo img {
+    width: 80px;
+    height: 80px;
+  }
+  .noOfPlayer {
+    font-size: 60px;
+  }
+  #startGame {
+    font-size: 60px;
+  }
+  #owner {
+    font-size: 24px;
+  }
+  .alertBtn {
+    font-size: 40px;
+  }
+  #alertHeading {
+    font-size: 45px;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  main {
+    max-width: 1000px;
+  }
+  .game-container {
+    max-width: 980px;
+  }
+  #game-logo {
+    font-size: 80px;
+  }
+  #game-logo img {
+    width: 100px;
+    height: 100px;
+  }
+  .noOfPlayer {
+    font-size: 80px;
+  }
+  #startGame {
+    font-size: 80px;
+  }
+  #owner {
+    font-size: 28px;
+  }
+  .alertBtn {
+    font-size: 50px;
+  }
+  #alertHeading {
+    font-size: 55px;
+  }
+}
